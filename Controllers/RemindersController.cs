@@ -41,4 +41,12 @@ public class RemindersController: ControllerBase {
         _reminderService.Add(reminder);
         return Ok();
     }
+
+    [HttpDelete("DeleteReminder", Name = "DeleteReminder")]
+    public IActionResult Add(int id){
+        if(_reminderService.Delete(id)) {
+            return Ok();
+        }
+        return NoContent();
+    }
 }
