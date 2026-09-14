@@ -29,15 +29,14 @@ public class RemindersController: ControllerBase {
         );
     }
 
-    [HttpGet(Name = "GetReminders")]
+    [HttpGet("GetAllReminders", Name = "GetAllReminders")]
     public IEnumerable<Reminder> GetAll()
     {
         var reminders = _reminderService.GetAll();
         return reminders.ToArray();
     }
 
-    //TODO make sure path is more clear
-    [HttpPost(Name = "AddReminder")]
+    [HttpPost("AddNewReminder", Name = "AddNewReminder")]
     public IActionResult Add(Reminder reminder){
         _reminderService.Add(reminder);
         return Ok();
