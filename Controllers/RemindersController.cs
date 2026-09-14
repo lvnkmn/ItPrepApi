@@ -28,6 +28,17 @@ public class RemindersController: ControllerBase {
         return reminders.ToArray();
     }
 
+    [HttpGet("GetReminder", Name = "GetReminder")]
+    public IActionResult GetById(int id)
+    {
+        var reminder = _reminderService.GetById(id);
+        if (reminder is null)
+        {
+            return NotFound();
+        }
+        return Ok(reminder);
+    }
+
     [HttpPost("AddNewReminder", Name = "AddNewReminder")]
     public IActionResult Add(Reminder reminder){
         _reminderService.Add(reminder);
