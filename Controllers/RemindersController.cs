@@ -35,4 +35,11 @@ public class RemindersController: ControllerBase {
         var reminders = _reminderService.GetAll();
         return reminders.ToArray();
     }
+
+    //TODO make sure path is more clear
+    [HttpPost(Name = "AddReminder")]
+    public IActionResult Add(Reminder reminder){
+        _reminderService.Add(reminder);
+        return Ok();
+    }
 }
