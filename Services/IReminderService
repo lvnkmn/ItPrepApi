@@ -1,0 +1,10 @@
+namespace ItPrepApi;
+
+public interface IReminderService
+{
+    List<Reminder> GetAll();
+    Reminder? GetById(int id);
+    void Add(Reminder reminder);
+    bool Update(int id, Reminder reminder);
+    bool Delete(int id);
+}

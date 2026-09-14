@@ -2,19 +2,13 @@ using System.ComponentModel;
 
 namespace ItPrepApi;
 
-/*
-Create a service class (e.g. ItemService) that owns an in-memory List<T>
-and exposes methods like GetAll, GetById, Add, Update, Delete. Define 
-an interface for it (IItemService) — this is what makes DI meaningful.
-*/
-
-class ReminderService
+class ReminderService: IReminderService
 {
-    private List<Reminder> _reminders { get; } = [];
+    private readonly List<Reminder> _reminders = [];
 
     public List<Reminder> GetAll()
     {
-        return _reminders;
+        return _reminders.ToList();
     }
 
     public Reminder? GetById(int id)
@@ -50,4 +44,4 @@ class ReminderService
         _reminders.RemoveAt(index);
         return true;
     }
-} 
+}
