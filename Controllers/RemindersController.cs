@@ -19,12 +19,20 @@ public class RemindersController: ControllerBase {
 
     public RemindersController(IReminderService reminderService) {
         this._reminderService = reminderService;
+        this._reminderService.Add(
+            new Reminder
+            {
+                Id = 1,
+                Description = "Buy milk",
+                DueDate = DateTime.Now.AddDays(1)
+            }
+        );
     }
 
     [HttpGet(Name = "GetReminders")]
-    public IActionResult GetAll()
+    public IEnumerable<Reminder> GetAll()
     {
-        var items = _reminderService.GetAll();
-        return Ok(items);
+        var reminders = _reminderService.GetAll();
+        return reminders.ToArray();
     }
 }
