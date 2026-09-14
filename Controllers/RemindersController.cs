@@ -19,14 +19,6 @@ public class RemindersController: ControllerBase {
 
     public RemindersController(IReminderService reminderService) {
         this._reminderService = reminderService;
-        this._reminderService.Add(
-            new Reminder
-            {
-                Id = 1,
-                Description = "Buy milk",
-                DueDate = DateTime.Now.AddDays(1)
-            }
-        );
     }
 
     [HttpGet("GetAllReminders", Name = "GetAllReminders")]
@@ -45,6 +37,14 @@ public class RemindersController: ControllerBase {
     [HttpDelete("DeleteReminder", Name = "DeleteReminder")]
     public IActionResult Add(int id){
         if(_reminderService.Delete(id)) {
+            return Ok();
+        }
+        return NoContent();
+    }
+
+    [HttpPut("UpdateReminder", Name = "UpdateReminder")]
+    public IActionResult Add(int id, Reminder reminder){
+        if(_reminderService.Update(id, reminder)) {
             return Ok();
         }
         return NoContent();
