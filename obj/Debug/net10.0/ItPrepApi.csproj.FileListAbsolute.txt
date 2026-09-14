@@ -1,3 +1,12 @@
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.csproj.AssemblyReference.cache
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.AssemblyInfoInputs.cache
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.AssemblyInfo.cs
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.csproj.CoreCompileInputs.cache
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.MvcApplicationPartsAssemblyInfo.cs
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.MvcApplicationPartsAssemblyInfo.cache
+/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.sourcelink.json
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/appsettings.Development.json
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/appsettings.json
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/ItPrepApi.staticwebassets.endpoints.json
@@ -8,14 +17,6 @@
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/ItPrepApi.pdb
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/bin/Debug/net10.0/Microsoft.OpenApi.dll
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.csproj.AssemblyReference.cache
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/rpswa.dswa.cache.json
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.GeneratedMSBuildEditorConfig.editorconfig
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.AssemblyInfoInputs.cache
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.AssemblyInfo.cs
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.csproj.CoreCompileInputs.cache
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.MvcApplicationPartsAssemblyInfo.cs
-/Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/ItPrepApi.MvcApplicationPartsAssemblyInfo.cache
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /Users/work/Coding/ITPrepOperatie/ItPrepApi/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
