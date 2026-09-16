@@ -1,47 +1,52 @@
 using System.ComponentModel;
+using ItPrepApi.Data;
 
 namespace ItPrepApi;
 
-class ReminderService: IReminderService
+public class ReminderService: IReminderService
 {
-    private readonly List<Reminder> _reminders = [];
+    public ReminderService(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    private readonly AppDbContext _context;
 
     public List<Reminder> GetAll()
     {
-        return _reminders.ToList();
+        return _context.Reminders.ToList();
     }
 
     public Reminder? GetById(int id)
     {
-        return _reminders.FirstOrDefault(r => r.Id == id);
+        return _context.Reminders.Find(id);
     }
 
     public void Add(Reminder reminder)
     {
-        _reminders.Add(reminder);
+        _context.Reminders.Add(reminder);
+        _context.SaveChanges();
     }
 
     public bool Update(int id, Reminder reminder)
     {
-        var index = _reminders.FindIndex(r => r.Id == id);
-        if (index == -1)
-        {
-            return false;
-        }
+        var existing = _context.Reminders.Find(id);
+        if (existing is null) return false;
 
-        _reminders[index] = reminder with { Id = id };
+        _context.Entry(existing).CurrentValues.SetValues(reminder with { Id = id });
+        _context.SaveChanges();
         return true;
     }
 
     public bool Delete(int id)
     {
-        var index = _reminders.FindIndex(r => r.Id == id);
-        if (index == -1)
+        Reminder? existing = _context.Reminders.Find(id);
+        if(existing == null)
         {
             return false;
         }
-
-        _reminders.RemoveAt(index);
+        _context.Reminders.Remove(existing);
+        _context.SaveChanges();
         return true;
     }
 }
