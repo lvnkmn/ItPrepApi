@@ -18,19 +18,19 @@ public class ReminderService: IReminderService
         return await _context.Reminders.ToListAsync();
     }
 
-    public async Task<Reminder?> GetByIdAsync(int id)
+    public async Task<Reminder?> GetByIdAsync(Guid id)
     {
         return await _context.Reminders.FindAsync(id);
     }
 
     public async Task AddAsync(Reminder reminder)
     {
-        var toAdd = reminder with { Id = 0 };
+        var toAdd = reminder with { Id = Guid.CreateVersion7() };
         await _context.Reminders.AddAsync(toAdd);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<bool> UpdateAsync(int id, Reminder reminder)
+    public async Task<bool> UpdateAsync(Guid id, Reminder reminder)
     {
         var existing = await _context.Reminders.FindAsync(id);
         if (existing is null) return false;
@@ -40,7 +40,7 @@ public class ReminderService: IReminderService
         return true;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
         Reminder? existing = await _context.Reminders.FindAsync(id);
         if(existing == null)

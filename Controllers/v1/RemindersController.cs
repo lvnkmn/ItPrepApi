@@ -20,7 +20,7 @@ public class RemindersController: ControllerBase {
     }
 
     [HttpGet("GetReminder", Name = "GetReminder")]
-    public async Task<IActionResult> GetByIdAsync(int id)
+    public async Task<IActionResult> GetByIdAsync(Guid id)
     {
         var reminder = await _reminderService.GetByIdAsync(id);
         if (reminder is null)
@@ -37,7 +37,7 @@ public class RemindersController: ControllerBase {
     }
 
     [HttpDelete("DeleteReminder", Name = "DeleteReminder")]
-    public async Task<IActionResult> DeleteAsync(int id){
+    public async Task<IActionResult> DeleteAsync(Guid id){
         if(await _reminderService.DeleteAsync(id)) {
             return Ok();
         }
@@ -45,7 +45,7 @@ public class RemindersController: ControllerBase {
     }
 
     [HttpPut("UpdateReminder", Name = "UpdateReminder")]
-    public async Task<IActionResult> UpdateAsync(int id, Reminder reminder){
+    public async Task<IActionResult> UpdateAsync(Guid id, Reminder reminder){
         if(await _reminderService.UpdateAsync(id, reminder)) {
             return Ok();
         }
