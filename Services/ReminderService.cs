@@ -25,7 +25,8 @@ public class ReminderService: IReminderService
 
     public async Task AddAsync(Reminder reminder)
     {
-        await _context.Reminders.AddAsync(reminder);
+        var toAdd = reminder with { Id = 0 };
+        await _context.Reminders.AddAsync(toAdd);
         await _context.SaveChangesAsync();
     }
 

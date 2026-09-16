@@ -1,6 +1,7 @@
 using ItPrepApi;
 using ItPrepApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,12 @@ builder.Services.AddScoped<IReminderService, ReminderService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+});
 
 var app = builder.Build();
 

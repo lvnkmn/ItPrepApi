@@ -1,9 +1,10 @@
-using ItPrepApi;
 using Microsoft.AspNetCore.Mvc;
-namespace ItPrepApi.Controllers;
+namespace ItPrepApi.Controllers.v1;
+using Asp.Versioning;
 
 [ApiController]
-[Route("[controller]")]
+[ApiVersion(1)]
+[Route("v{version:apiVersion}/reminders")]
 public class RemindersController: ControllerBase {
     private IReminderService _reminderService;
 
