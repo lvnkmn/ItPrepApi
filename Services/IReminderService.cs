@@ -2,9 +2,9 @@ namespace ItPrepApi;
 
 public interface IReminderService
 {
-    List<Reminder> GetAll();
-    Reminder? GetById(int id);
-    void Add(Reminder reminder);
-    bool Update(int id, Reminder reminder);
-    bool Delete(int id);
+    Task<List<Reminder>> GetAllAsync();
+    Task<Reminder?> GetByIdAsync(int id);
+    Task AddAsync(Reminder reminder);
+    Task<bool> UpdateAsync(int id, Reminder reminder);
+    Task<bool> DeleteAsync(int id);
 }

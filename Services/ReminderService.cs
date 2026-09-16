@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using ItPrepApi.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItPrepApi;
 
@@ -12,41 +13,41 @@ public class ReminderService: IReminderService
 
     private readonly AppDbContext _context;
 
-    public List<Reminder> GetAll()
+    public async Task<List<Reminder>> GetAllAsync()
     {
-        return _context.Reminders.ToList();
+        return await _context.Reminders.ToListAsync();
     }
 
-    public Reminder? GetById(int id)
+    public async Task<Reminder?> GetByIdAsync(int id)
     {
-        return _context.Reminders.Find(id);
+        return await _context.Reminders.FindAsync(id);
     }
 
-    public void Add(Reminder reminder)
+    public async Task AddAsync(Reminder reminder)
     {
-        _context.Reminders.Add(reminder);
-        _context.SaveChanges();
+        await _context.Reminders.AddAsync(reminder);
+        await _context.SaveChangesAsync();
     }
 
-    public bool Update(int id, Reminder reminder)
+    public async Task<bool> UpdateAsync(int id, Reminder reminder)
     {
-        var existing = _context.Reminders.Find(id);
+        var existing = await _context.Reminders.FindAsync(id);
         if (existing is null) return false;
 
         _context.Entry(existing).CurrentValues.SetValues(reminder with { Id = id });
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return true;
     }
 
-    public bool Delete(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        Reminder? existing = _context.Reminders.Find(id);
+        Reminder? existing = await _context.Reminders.FindAsync(id);
         if(existing == null)
         {
             return false;
         }
         _context.Reminders.Remove(existing);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return true;
     }
 }

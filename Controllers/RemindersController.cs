@@ -18,20 +18,20 @@ public class RemindersController: ControllerBase {
     private IReminderService _reminderService;
 
     public RemindersController(IReminderService reminderService) {
-        this._reminderService = reminderService;
+        _reminderService = reminderService;
     }
 
     [HttpGet("GetAllReminders", Name = "GetAllReminders")]
-    public IEnumerable<Reminder> GetAll()
+    public async Task<IEnumerable<Reminder>> GetAllAsync()
     {
-        var reminders = _reminderService.GetAll();
+        var reminders = await _reminderService.GetAllAsync();
         return reminders.ToArray();
     }
 
     [HttpGet("GetReminder", Name = "GetReminder")]
-    public IActionResult GetById(int id)
+    public async Task<IActionResult> GetByIdAsync(int id)
     {
-        var reminder = _reminderService.GetById(id);
+        var reminder = await _reminderService.GetByIdAsync(id);
         if (reminder is null)
         {
             return NotFound();
@@ -40,22 +40,22 @@ public class RemindersController: ControllerBase {
     }
 
     [HttpPost("AddNewReminder", Name = "AddNewReminder")]
-    public IActionResult Add(Reminder reminder){
-        _reminderService.Add(reminder);
+    public async Task<IActionResult> AddAsync(Reminder reminder){
+        await _reminderService.AddAsync(reminder);
         return Ok();
     }
 
     [HttpDelete("DeleteReminder", Name = "DeleteReminder")]
-    public IActionResult Add(int id){
-        if(_reminderService.Delete(id)) {
+    public async Task<IActionResult> DeleteAsync(int id){
+        if(await _reminderService.DeleteAsync(id)) {
             return Ok();
         }
         return NoContent();
     }
 
     [HttpPut("UpdateReminder", Name = "UpdateReminder")]
-    public IActionResult Add(int id, Reminder reminder){
-        if(_reminderService.Update(id, reminder)) {
+    public async Task<IActionResult> UpdateAsync(int id, Reminder reminder){
+        if(await _reminderService.UpdateAsync(id, reminder)) {
             return Ok();
         }
         return NoContent();
